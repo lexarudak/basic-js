@@ -36,8 +36,9 @@ const chainMaker = {
     return this
   },
   finishChain() {
-    console.log(this.chain.join('~~'));
-    return (this.chain.join('~~'))
+    const res = this.chain.join('~~')
+    this.chain = []
+    return res
   }
 };
 
@@ -45,6 +46,3 @@ module.exports = {
   chainMaker
 };
 
-// '( DEF )~~( 3.14 )~~( 8.963 )~~( [object Object] )'
-
-// console.log(chainMaker.addLink('8.963').reverseChain().reverseChain().reverseChain().reverseChain().addLink({ 0: 'first', 1: 'second', 'length': 2 }).reverseChain().addLink(3.14).addLink('DEF').reverseChain().finishChain());
