@@ -10,11 +10,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * @return {Array<Array>}
  *
  * @example
- * matrix = [
- *  [true, false, false],
- *  [false, true, false],
- *  [false, false, false]
- * ]
+
  *
  * The result should be following:
  * [
@@ -23,11 +19,61 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper(matrix) {
+  const cleanMatrix = matrix.map(val => {
+    const newRow = []
+    val.forEach(el => {
+      newRow.push(0)
+    })
+    return newRow
+  })
+
+  
+
+    matrix.forEach((bigVal, bigInd, BigArr) => {
+    bigVal.forEach((minVal, minInd, minArr) => {
+      if(minVal){
+        if (cleanMatrix[bigInd - 1]){
+          if (minInd !== 0) {
+            cleanMatrix[bigInd - 1][minInd - 1] ++
+          }
+            cleanMatrix[bigInd - 1][minInd] ++
+          if(minInd !== minArr.length - 1){
+            cleanMatrix[bigInd - 1][minInd + 1] ++
+          }
+        }
+         if (minInd !== 0) {
+            cleanMatrix[bigInd][minInd - 1] ++
+          }
+          if(minInd !== minArr.length - 1){
+            cleanMatrix[bigInd][minInd + 1] ++
+          }
+        if (cleanMatrix[bigInd + 1]){
+          if (minInd !== 0) {
+            cleanMatrix[bigInd + 1][minInd - 1] ++
+          }
+            cleanMatrix[bigInd + 1][minInd] ++
+          if(minInd !== minArr.length - 1){
+            cleanMatrix[bigInd + 1][minInd + 1] ++
+          }
+        }
+        
+        
+      }
+    })
+  })
+  console.log(cleanMatrix);
+  return cleanMatrix
 }
 
 module.exports = {
   minesweeper
 };
+
+
+// const matrix = [
+//  [true, false, false],
+//  [false, true, false],
+//  [false, false, false]
+// ]
+// minesweeper(matrix)
