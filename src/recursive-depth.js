@@ -14,52 +14,52 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class DepthCalculator {
   calculateDepth(arr) {
-      throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
-  //   if (Array.isArray(arr)){
-  //     let finalCount = 1
-  //     let count = 1
+  //     throw new NotImplementedError('Not implemented');
+  // // remove line with error and write your code here
+    if (Array.isArray(arr)){
+      let finalCount = 1
+      let count = 1
       
 
-  //     function fe (element) {
-  //       const isArr = element.filter(val => Array.isArray(val))
-  //       console.log('is arr:', isArr);
+      function fe (element) {
+        const isArr = element.filter(val => Array.isArray(val))
+        console.log('is arr:', isArr);
         
-  //       if (isArr.length > 0) {
-  //         count ++
-  //         console.log('count', count);
+        if (isArr.length > 0) {
+          count ++
+          console.log('count', count);
           
-  //       element.forEach((value) => {  
-  //         if (Array.isArray(value)){
-  //           console.log('VALUE:', value);
+        element.forEach((value) => {  
+          if (Array.isArray(value)){
+            console.log('VALUE:', value);
             
-  //           fe(value)
-  //         }
-  //       })
-  //     } else {
-  //       console.log('to final count', count, finalCount);
+            fe(value)
+          }
+        })
+      } else {
+        console.log('to final count', count, finalCount);
         
-  //       if (count > finalCount) {
-  //         finalCount = count
-  //         count = 2
-  //         console.log('to final count', count, finalCount);
-  //         console.log('---------------------------------');
-  //       } else {
-  //         count = 2
-  //         console.log('to final count', count, finalCount);
-  //         console.log('---------------------------------');
-  //       }
+        if (count > finalCount) {
+          finalCount = count
+          count = 2
+          console.log('to final count', count, finalCount);
+          console.log('---------------------------------');
+        } else {
+          count = 2
+          console.log('to final count', count, finalCount);
+          console.log('---------------------------------');
+        }
         
-  //     }
-  //     }
-  //     fe(arr)
+      }
+      }
+      fe(arr)
       
-  //     console.log('end', finalCount);
+      console.log('end', finalCount);
       
-  //     return finalCount
-  //   } else {
-  //     return 0
-  //   }
+      return finalCount
+    } else {
+      return 0
+    }
     
   }
 }
